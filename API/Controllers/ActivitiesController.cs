@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
 using Application.Events;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
