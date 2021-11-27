@@ -10,7 +10,7 @@ namespace API.DTOs
         [EmailAddress]
         public string Email {get; set;}
         [Required]
-        [RegularExpression("(?=.*\\d)(?=.*[a-z]).{4, 8}$", ErrorMessage = "Weak password")]
+        [RegularExpression("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", ErrorMessage = "Weak password")]
         public string Password {get; set;}
         [Required]
         public string UserName {get; set;}
