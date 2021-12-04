@@ -13,7 +13,7 @@ export default observer (function HomePage() {
         <Segment inverted textAlign='center' className='masthead'>
             <Container text>
                 <Header as='h1' inverted>
-                    Welcome
+                    Welcome to Activities!
                 </Header>
                 {userStore.isLoggedIn ? (
                     <>

@@ -13,24 +13,16 @@ import ReusableTextArea from "../../../app/common/form/ReusableTextArea";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import ReusableSelectInput from "../../../app/common/form/ReusableSelectInput";
 import ReusableDateInput from "../../../app/common/form/ReusableDateInput";
-import { Activity } from "../../../app/models/activity";
+import { ActivityFormValues } from "../../../app/models/activity";
 
 export default observer(function ActivityForm() {
     const history = useHistory();
     const {activityStore} = useStore();
-    const {createActivity, updateActivity, loading,
+    const {createActivity, updateActivity,
          loadActivity, loadingInitial} = activityStore;
     const {id} = useParams<{id: string}>();
 
-    const [activity, setActivity] = useState<Activity>({
-        id: '',
-        title: '',
-        category: '',
-        description: '',
-        date: null,
-        city: '',
-        venue: ''
-    });
+    const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues());
 
     const validationSchema = Yup.object({
         title: Yup.string().required('Title is required'),
@@ -41,8 +33,8 @@ export default observer(function ActivityForm() {
         venue: Yup.string().required('Venue is required')
     })
 
-    function handleFormSubmit(activity: Activity) {
-        if (activity.id.length === 0) {
+    function handleFormSubmit(activity: ActivityFormValues) {
+        if (!activity.id) {
             let newActivity = {
                 ...activity,
                 id: uuid()
@@ -86,7 +78,7 @@ export default observer(function ActivityForm() {
                         <Button
                             disabled={isSubmitting || !isValid || !dirty}
 
-                            loading={loading} floated='right' positive type='submit' content='Submit'
+                            loading={isSubmitting} floated='right' positive type='submit' content='Submit'
                         />
                         <Button as={Link} to='/activities' floated='right' type='submit' content='Cancel' />
                     </Form>
