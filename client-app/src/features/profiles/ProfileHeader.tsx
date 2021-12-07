@@ -29,7 +29,7 @@ export default observer(function ProfileHeader({profile}: Props) {
                     <Divider />
                     <Reveal animated='move'>
                         <Reveal.Content visible style={{ width: '100%' }}>
-                            <Button fluid color='teal' content='Following' />
+                            <Button fluid color='blue' content='Following' />
                         </Reveal.Content>
                         <Reveal.Content hidden visible style={{ width: '100%' }}>
                             <Button fluid
