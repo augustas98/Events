@@ -13,6 +13,6 @@ namespace API.DTOs
         [RegularExpression("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", ErrorMessage = "Weak password")]
         public string Password {get; set;}
         [Required]
-        public string UserName {get; set;}
+        public string Username {get; set;}
     }
 }

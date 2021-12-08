@@ -15,16 +15,16 @@ export default class ProfileStore {
 
     get isCurrentUser() {
         if (store.userStore.user && this.profile) {
-            return store.userStore.user.userName === this.profile.userName;
+            return store.userStore.user.username === this.profile.username;
         }
 
         return false;
     }
 
-    loadProfile = async (userName: string) => {
+    loadProfile = async (username: string) => {
         this.loadingProfile = true;
         try {
-            const profile = await agent.Profiles.get(userName);
+            const profile = await agent.Profiles.get(username);
             runInAction(() => {
                 this.profile = profile;
                 this.loadingProfile = false;

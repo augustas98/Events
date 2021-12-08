@@ -19,7 +19,7 @@ namespace Application.Events.Core
 
             CreateMap<ActivityAttendee, AttendeeDto>()
                 .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.Appuser.DisplayName))
-                .ForMember(d => d.UserName, o => o.MapFrom(s => s.Appuser.UserName))
+                .ForMember(d => d.Username, o => o.MapFrom(s => s.Appuser.UserName))
                 .ForMember(d => d.Bio, o => o.MapFrom(s => s.Appuser.Bio))
                 .ForMember(d => d.Image, o => o.MapFrom(s => s.Appuser.Photos.FirstOrDefault(x => x.IsMain).Url));
 
@@ -28,7 +28,7 @@ namespace Application.Events.Core
 
             CreateMap<Comment, CommentsDto>()
                 .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.Author.DisplayName))
-                .ForMember(d => d.UserName, o => o.MapFrom(s => s.Author.UserName))
+                .ForMember(d => d.Username, o => o.MapFrom(s => s.Author.UserName))
                 .ForMember(d => d.Image, o => o.MapFrom(s => s.Author.Photos.FirstOrDefault(x => x.IsMain).Url));
         }
     }

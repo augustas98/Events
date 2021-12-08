@@ -23,7 +23,7 @@ function BadRequest(data: any, config: AxiosRequestConfig) {
         {
             if (data.errors[key])
             {
-                modalStateErrors.push(data.errors[key])
+                modalStateErrors.push(data.errors[key]);
             }
         }
         throw modalStateErrors.flat();
@@ -93,7 +93,7 @@ const Account = {
 }
 
 const Profiles = {
-    get: (userName: string) => requests.get<Profile>(`profiles/${userName}`),
+    get: (username: string) => requests.get<Profile>(`profiles/${username}`),
     uploadPhoto: (file: Blob) => {
         let formData = new FormData();
         formData.append('File', file);
