@@ -46,7 +46,7 @@ export default observer(function ActivityForm() {
     }
 
     useEffect(() => {
-        if (id) loadActivity(id).then(activity => setActivity(activity!))
+        if (id) loadActivity(id).then(activity => setActivity(new ActivityFormValues(activity!)))
     }, [id, loadActivity]);
 
     if (loadingInitial) return <LoadingComponent content='Loading...' />
