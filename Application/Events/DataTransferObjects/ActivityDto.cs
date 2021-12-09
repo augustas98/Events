@@ -13,7 +13,7 @@ namespace Application.Events.DataTransferObjects
         public string Category { get; set; }
         public string City { get; set; }
         public string Venue { get; set; }
-        public string HostUserName {get; set;}
+        public string HostUsername {get; set;}
         public ICollection<AttendeeDto> Attendees {get; set;}
     }
 }

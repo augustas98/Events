@@ -77,8 +77,8 @@ export default class ActivityStore {
             activity.isGoing = activity.attendees!.some(
                 a => a.username === user.username
             )
-            activity.isHost = activity.hostUserName === user.username;
-            activity.host = activity.attendees?.find(x => x.username === activity.hostUserName);
+            activity.isHost = activity.hostUsername === user.username;
+            activity.host = activity.attendees?.find(x => x.username === activity.hostUsername);
         }
         activity.date = new Date(activity.date!);
         this.activityRegistry.set(activity.id, activity);
@@ -94,7 +94,7 @@ export default class ActivityStore {
         try {
             await agent.Activities.create(activity);
             const newActivity = new Activity(activity);
-            newActivity.hostUserName = user!.username;
+            newActivity.hostUsername = user!.username;
             newActivity.attendees = [attendee];
             this.setActivity(newActivity);
             runInAction(() => {

@@ -13,7 +13,7 @@ namespace Application.Events.Core
             CreateMap<Activity, Activity>();
             
             CreateMap<Activity, ActivityDto>()
-                .ForMember(d => d.HostUserName, o => o
+                .ForMember(d => d.HostUsername, o => o
                 .MapFrom(s => s.Attendees
                 .FirstOrDefault(x => x.IsHost).Appuser.UserName));
 
