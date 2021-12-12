@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { Button, Divider, Grid, Header, Item, Reveal, Segment, Statistic } from 'semantic-ui-react';
+import { Button, Divider, Grid, Header, Item, Reveal, Segment } from 'semantic-ui-react';
 import { Profile } from '../../app/models/profile';
 
 interface Props {
@@ -22,10 +22,6 @@ export default observer(function ProfileHeader({profile}: Props) {
                     </Item.Group>
                 </Grid.Column>
                 <Grid.Column width={4}>
-                    <Statistic.Group widths={2}>
-                        <Statistic label='Followers' value='5' />
-                        <Statistic label='Following' value='42' />
-                    </Statistic.Group>
                     <Divider />
                     <Reveal animated='move'>
                         <Reveal.Content visible style={{ width: '100%' }}>
