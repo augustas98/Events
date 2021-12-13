@@ -18,9 +18,9 @@ namespace Persistence
                 {
                     new AppUser
                     {
-                        DisplayName = "Bob",
-                        UserName = "bob",
-                        Email = "bob@test.com"
+                        DisplayName = "admin",
+                        UserName = "admin",
+                        Email = "admin@admin.com"
                     }
                 };
 
@@ -33,12 +33,12 @@ namespace Persistence
                 {
                     new Activity
                     {
-                        Title = "Past Activity 1",
+                        Title = "Test activity",
                         Date = DateTime.Now.AddMonths(-2),
-                        Description = "Activity 2 months ago",
+                        Description = "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test",
                         Category = "drinks",
-                        City = "London",
-                        Venue = "Pub",
+                        City = "Test",
+                        Venue = "Test",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { history } from "../..";
 import { Activity, ActivityFormValues } from "../models/activity";
 import { PaginatedResult } from "../models/pagination";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, UserActivity } from "../models/profile";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -37,7 +37,7 @@ const sleep = (delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use(config => {
     const token = store.commonStore.token;
@@ -47,7 +47,7 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(async response => {
-        await sleep(1000);
+        if (process.env.NODE_ENV === 'development') await sleep(1000);
         const pagination = response.headers['pagination'];
         if (pagination) {
             response.data = new PaginatedResult(response.data, JSON.parse(pagination));
@@ -104,12 +104,15 @@ const Profiles = {
         let formData = new FormData();
         formData.append('File', file);
         return axios.post<Photo>('photos', formData, {
-            headers: {'Content-type': 'multipart/form-data'}
+            headers: { 'Content-type': 'multipart/form-data' }
         })
     },
     setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
     deletePhoto: (id: string) => requests.del(`/photos/${id}`),
-    editProfile: (profile: Partial<Profile>) => requests.put(`/profiles`, profile)
+    updateProfile: (profile: Partial<Profile>) => requests.put(`/profiles`,
+        profile),
+    listActivities: (username: string, predicate: string) =>
+        requests.get<UserActivity[]>(`/profiles/${username}/activities?predicate=${predicate}`)
 }
 
 const agent = {
