@@ -30,7 +30,7 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
             <Segment basic attached='top' style={{ padding: '0' }}>
                 {activity.isCancelled &&
                     <Label style={{position: 'absolute', zIndex: 100, left: -14, top: 20}}
-                    ribbon color='red' content='Cancelled' />
+                    ribbon color='red' content='Atšaukta' />
                 }
                 <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
                 <Segment style={activityImageTextStyle} basic>
@@ -44,7 +44,7 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                                 />
                                 <p>{format(activity.date!, 'dd MMM yyyy')}</p>
                                 <p>
-                                    Hosted by <strong><Link to={`/profiles/${activity.host?.username}`}>{activity.host?.displayName}</Link></strong>
+                                    Renginio savininkas <strong><Link to={`/profiles/${activity.host?.username}`}>{activity.host?.displayName}</Link></strong>
                                 </p>
                             </Item.Content>
                         </Item>
@@ -67,15 +67,15 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                             to={`/manage/${activity.id}`} 
                             color='orange' 
                             floated='right'>
-                            Manage Event
+                            Redaguoti
                         </Button>
                     </>
                 ) : activity.isGoing ? (
                     <Button
-                    loading={loading} onClick={updateAttendance}>Cancel attendance</Button>
+                    loading={loading} onClick={updateAttendance}>Atšaukti dalyvavimą</Button>
                 ) : (
                     <Button disabled={activity.isCancelled}
-                    loading={loading} onClick={updateAttendance} color='blue'>Join Activity</Button>
+                    loading={loading} onClick={updateAttendance} color='blue'>Dalyvauti renginyje</Button>
                 )}
             </Segment>
         </Segment.Group>

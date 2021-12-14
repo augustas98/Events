@@ -12,22 +12,22 @@ export default observer (function HomePage() {
     return (
         <Segment inverted textAlign='center' className='masthead'>
             <Container text>
-                <Header as='h1' inverted>
-                    Welcome to Activities!
+                <Header as='h1' inverted color='blue'>
+                    Sveiki atvykę į renginius!
                 </Header>
                 {userStore.isLoggedIn ? (
                     <>
-                    <Button as={Link} to='/activities' size='huge' inverted>
-                    Go to activities!
+                    <Button as={Link} to='/activities' size='huge' color='blue' inverted>
+                    Eiti į renginius!
                     </Button>
                     </>
                 ) : (
                         <>
-                            <Button onClick={() => modalStore.openModal(<LoginForm />)} size='huge' inverted>
-                                Login
+                            <Button onClick={() => modalStore.openModal(<LoginForm />)} size='huge' color='blue' inverted>
+                                Prisijungti
                             </Button>
-                            <Button onClick={() => modalStore.openModal(<RegisterForm />)} size='huge' inverted>
-                                Register
+                            <Button onClick={() => modalStore.openModal(<RegisterForm />)} size='huge' color='blue' inverted>
+                                Registruotis
                             </Button>
                         </>
                 )}

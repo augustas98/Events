@@ -33,7 +33,7 @@ export default observer(function ActivityDetailedChat({ activityId }: Props) {
                 color='blue'
                 style={{ border: 'none' }}
             >
-                <Header>Comments</Header>
+                <Header>Komentarai</Header>
             </Segment>
             <Segment attached clearing>
                 <Comment.Group>
@@ -67,7 +67,7 @@ export default observer(function ActivityDetailedChat({ activityId }: Props) {
                                         <div style={{position: 'relative'}}>
                                             <Loader active={isSubmitting}/>
                                             <textarea
-                                                placeholder='Type something!'
+                                                placeholder='Įvesk kažką!'
                                                 rows={2}
                                                 {...props.field}
                                                 onKeyPress={e => {

@@ -13,16 +13,16 @@ export default observer (function NavBar() {
                 <Menu.Item as={NavLink} to='/' exact header>
                     <img src="/assets/house-logo.png" alt="logo" style={{marginRight: '10px'}} />
                 </Menu.Item>
-                <Menu.Item as={NavLink} to='/activities' name='Activities'></Menu.Item>
+                <Menu.Item as={NavLink} to='/activities' name='Renginiai'></Menu.Item>
                 <Menu.Item>
-                    <Button as={NavLink} to='/createActivity' positive content='Create Activity'></Button>
+                    <Button as={NavLink} to='/createActivity' positive content='Sukurti renginį'></Button>
                 </Menu.Item>
                 <Menu.Item position='right'>
                     <Image src={user?.image || '/assets/user.png'} avatar spaced='right' />
                     <Dropdown pointing='top left' text={user?.displayName}>
                         <Dropdown.Menu>
-                            <Dropdown.Item as={Link} to={`/profiles/${user?.username}`} text='My Profile' icon='user' />
-                            <Dropdown.Item onClick={logout} text='Logout' icon='power' />
+                            <Dropdown.Item as={Link} to={`/profiles/${user?.username}`} text='Mano Profilis' icon='user' />
+                            <Dropdown.Item onClick={logout} text='Atsijungti' icon='power' />
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>

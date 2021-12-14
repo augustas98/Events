@@ -24,18 +24,18 @@ export default function ActivityListItem({ activity }: Props) {
                             <Item.Header as={Link} to={`/activities/${activity.id}`}>
                                 {activity.title}
                             </Item.Header>
-                            <Item.Description>Hosted by <Link to={`profiles/${activity.hostUsername}`}> {activity.host?.displayName} </Link> </Item.Description>
+                            <Item.Description>Renginio savininkas <Link to={`profiles/${activity.hostUsername}`}> {activity.host?.displayName} </Link> </Item.Description>
                             {activity.isHost && (
                                 <Item.Description>
                                     <Label basic color='orange'>
-                                        You are the host of this event
+                                        Jūs esate šio renginio savininkas
                                     </Label>
                                 </Item.Description>
                             )}
                             {activity.isGoing && !activity.isHost && (
                                 <Item.Description>
                                     <Label basic color='green'>
-                                        You are going to this event
+                                        Jūs dalyvaujate šiame renginyje
                                     </Label>
                                 </Item.Description>
                             )}

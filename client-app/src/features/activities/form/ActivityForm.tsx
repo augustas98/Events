@@ -25,12 +25,12 @@ export default observer(function ActivityForm() {
     const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues());
 
     const validationSchema = Yup.object({
-        title: Yup.string().required('Title is required'),
-        description: Yup.string().required('Description is required'),
-        category: Yup.string().required('Category is required'),
-        date: Yup.string().required('Date is required').nullable(),
-        city: Yup.string().required('City is required'),
-        venue: Yup.string().required('Venue is required')
+        title: Yup.string().required('Pavadinimas yra privalomas'),
+        description: Yup.string().required('Aprašymas yra privalomas'),
+        category: Yup.string().required('Kategorija yra privaloma'),
+        date: Yup.string().required('Data yra privaloma').nullable(),
+        city: Yup.string().required('Miestas yra privalomas'),
+        venue: Yup.string().required('Vieta yra privaloma')
     })
 
     function handleFormSubmit(activity: ActivityFormValues) {
@@ -49,11 +49,11 @@ export default observer(function ActivityForm() {
         if (id) loadActivity(id).then(activity => setActivity(new ActivityFormValues(activity!)))
     }, [id, loadActivity]);
 
-    if (loadingInitial) return <LoadingComponent content='Loading...' />
+    if (loadingInitial) return <LoadingComponent content='Kraunasi...' />
 
     return (
         <Segment clearing>
-            <Header content='Activity Details' sub color='blue' />
+            <Header content='Renginio detalės' sub color='blue' />
             <Formik
                 validationSchema={validationSchema}
                 enableReinitialize
@@ -61,26 +61,26 @@ export default observer(function ActivityForm() {
                 onSubmit={values => handleFormSubmit(values)}>
                 {({ handleSubmit, isValid, isSubmitting, dirty }) => (
                     <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
-                        <ReusableTextInput name='title' placeholder='Title' />
-                        <ReusableTextArea rows={3} placeholder='Description' name='description' />
-                        <ReusableSelectInput options={categoryOptions} placeholder='Category' name='category' />
+                        <ReusableTextInput name='title' placeholder='Pavadinimas' />
+                        <ReusableTextArea rows={3} placeholder='Aprašymas' name='description' />
+                        <ReusableSelectInput options={categoryOptions} placeholder='Kategorija' name='category' />
                         <ReusableDateInput
-                            placeholderText='Date'
+                            placeholderText='Data'
                             name='date'
                             showTimeSelect
                             timeCaption='time'
                             dateFormat='MMMM d, yyyy HH:mm'
                             timeFormat='HH:mm'
                         />
-                        <Header content='Location Details' sub color='blue' />
-                        <ReusableTextInput placeholder='City' name='city' />
-                        <ReusableTextInput placeholder='Venue' name='venue' />
+                        <Header content='Vietos detalės' sub color='blue' />
+                        <ReusableTextInput placeholder='Miestas' name='city' />
+                        <ReusableTextInput placeholder='Vieta' name='venue' />
                         <Button
                             disabled={isSubmitting || !isValid || !dirty}
 
-                            loading={isSubmitting} floated='right' positive type='submit' content='Submit'
+                            loading={isSubmitting} floated='right' positive type='submit' content='Patvirtinti'
                         />
-                        <Button as={Link} to='/activities' floated='right' type='submit' content='Cancel' />
+                        <Button as={Link} to='/activities' floated='right' type='submit' content='Atšaukti' />
                     </Form>
                 )}
             </Formik>

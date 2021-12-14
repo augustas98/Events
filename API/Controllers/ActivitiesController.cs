@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System;
 using Application.Events;
 using Microsoft.AspNetCore.Authorization;
-using Application.Events.Core;
 
 namespace API.Controllers
 {

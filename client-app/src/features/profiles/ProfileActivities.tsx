@@ -7,9 +7,9 @@ import { format } from 'date-fns';
 import { useStore } from "../../app/stores/store";
 
 const panes = [
-    { menuItem: 'Future Events', pane: { key: 'future' } },
-    { menuItem: 'Past Events', pane: { key: 'past' } },
-    { menuItem: 'Hosting', pane: { key: 'hosting' } }
+    { menuItem: 'Ateityje', pane: { key: 'future' } },
+    { menuItem: 'Praeityje', pane: { key: 'past' } },
+    { menuItem: 'Rengiami', pane: { key: 'hosting' } }
 ];
 
 export default observer(function ProfileActivities() {
@@ -35,7 +35,7 @@ export default observer(function ProfileActivities() {
             <Grid>
                 <Grid.Column width={16}>
                     <Header floated='left' icon='calendar'
-                        content={'Activities'} />
+                        content={'Renginiai'} />
                 </Grid.Column>
                 <Grid.Column width={16}>
                     <Tab

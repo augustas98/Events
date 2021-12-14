@@ -20,7 +20,7 @@ export default observer(function ActivityDetailedSidebar({ activity: { attendees
                 inverted
                 color='blue'
             >
-                {attendees.length} {attendees.length === 1 ? 'Person' : 'People'} going
+                {attendees.length} {attendees.length === 1 ? 'Žmogus' : 'Žmonės'} dalyvauja
             </Segment>
             <Segment attached>
                 <List relaxed divided>
