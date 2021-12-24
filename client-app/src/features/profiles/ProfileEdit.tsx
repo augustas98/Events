@@ -35,7 +35,7 @@ export default observer(function ProfileEditForm({ setEditMode }: Props) {
                         positive
                         type='submit'
                         loading={isSubmitting}
-                        content='Update profile'
+                        content='Atnaujinti'
                         floated='right'
                         disabled={!isValid || !dirty}
                     />

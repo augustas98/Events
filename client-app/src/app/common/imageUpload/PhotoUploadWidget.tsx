@@ -28,19 +28,19 @@ export default function PhotoUploadWidget({loading, uploadPhoto}: Props) {
     return (
         <Grid>
             <Grid.Column width={4}>
-                <Header sub color='blue' content='Step 1 - Add Photo' />
+                <Header sub color='blue' content='Pirmas žingsnis - Pridėkite nuotrauką' />
                 <PhotoWidgetDropzone setFiles={setFiles} />
             </Grid.Column>
             <Grid.Column width={1} />
             <Grid.Column width={4}>
-                <Header sub color='blue' content='Step 2 - Resize Image' />
+                <Header sub color='blue' content='Antras žingsnis - Pakeiskite nuotraukos dydį' />
                 {files && files.length > 0 && (
                     <PhotoWidgetCropper setCropper={setCropper} imagePreview={files[0].preview} />
                 )}
             </Grid.Column>
             <Grid.Column width={1} />
             <Grid.Column width={4}>
-                <Header sub color='blue' content='Step 3 - Preview and Upload' />
+                <Header sub color='blue' content='Trečias žingsnis - Peržiūrėkite ir įkelkite' />
                 {files && files.length > 0 &&
                 <>
                     <div className='img-preview' style={{ minHeight: 200, overflow: 'hidden' }} />

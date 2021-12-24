@@ -23,17 +23,17 @@ export default observer(function RegisterForm() {
         >
             {({handleSubmit, isSubmitting, errors, isValid, dirty}) => (
                 <Form className='ui form error' onSubmit={handleSubmit} autoComplete='off'>
-                    <Header as='h2' content='Sign up' color='blue' textAlign='center' />
-                    <ReusableTextInput name='displayName' placeholder='Display Name' />
-                    <ReusableTextInput name='username' placeholder='Username' />
-                    <ReusableTextInput name='email' placeholder='Email' />
-                    <ReusableTextInput name='password' placeholder='Password' type='password' />
+                    <Header as='h2' content='Registracija' color='blue' textAlign='center' />
+                    <ReusableTextInput name='displayName' placeholder='Vaizduojamas vardas' />
+                    <ReusableTextInput name='username' placeholder='Naudotojo vardas' />
+                    <ReusableTextInput name='email' placeholder='Elektroninis paštas' />
+                    <ReusableTextInput name='password' placeholder='Slaptažodis' type='password' />
                     <ErrorMessage 
                         name='error' render={() => 
                         <ValidationErrors errors={errors.error}/>}
                     />
                     <Button disabled={!isValid || !dirty || isSubmitting} 
-                        loading={isSubmitting} positive content='Register' type='submit' fluid />
+                        loading={isSubmitting} positive content='Patvirtinti' type='submit' fluid />
                 </Form>
             )}
         </Formik>

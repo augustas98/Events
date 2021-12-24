@@ -58,7 +58,7 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                             color={activity.isCancelled ? 'green' : 'red'}
                             floated='left'
                             basic
-                            content={activity.isCancelled ? 'Revert cancellation' : 'Cancel this activity'}
+                            content={activity.isCancelled ? 'Renginys vyks' : 'Atšaukti šį renginį'}
                             onClick={cancelActivityToggle}
                             loading={loading}
                         />

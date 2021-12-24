@@ -12,12 +12,12 @@ export default observer(function ProfileAbout() {
         <Tab.Pane>
             <Grid>
                 <Grid.Column width='16'>
-                    <Header floated='left' icon='user' content={`About ${profile?.displayName}`} />
+                    <Header floated='left' icon='user' content={`Apie ${profile?.displayName}`} />
                     {isCurrentUser && (
                         <Button
                             floated='right'
                             basic
-                            content={editMode ? 'Cancel' : 'Edit Profile'}
+                            content={editMode ? 'Atšaukti' : 'Redaguoti profilį'}
                             onClick={() => setEditMode(!editMode)}
                         />
                     )}

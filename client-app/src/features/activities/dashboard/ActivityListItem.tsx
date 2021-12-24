@@ -59,7 +59,7 @@ export default function ActivityListItem({ activity }: Props) {
                     to={`/activities/${activity.id}`}
                     color='blue'
                     floated='right'
-                    content='view' />
+                    content='peržiūrėti' />
             </Segment>
         </Segment.Group>
     )

@@ -33,11 +33,11 @@ export default observer(function ProfilePhotos({ profile }: Props) {
         <Tab.Pane>
             <Grid>
                 <Grid.Column width={16}>
-                    <Header floated='left' icon='image' content='Photos' />
+                    <Header floated='left' icon='image' content='Nuotraukos' />
                     {isCurrentUser && (
                         <Button
                             floated='right'
-                            basic content={addPhotoMode ? 'Cancel' : 'Add Photo'}
+                            basic content={addPhotoMode ? 'Atšaukti' : 'Pridėti nuotrauką'}
                             onClick={() => setAddPhotoMode(!addPhotoMode)}
                         />
                     )}
@@ -55,7 +55,7 @@ export default observer(function ProfilePhotos({ profile }: Props) {
                                             <Button
                                                 basic
                                                 color='green'
-                                                content='Main'
+                                                content='Pagr.'
                                                 name={'main' + photo.id}
                                                 disabled={photo.isMain}
                                                 loading={target === 'main' + photo.id && loading}

@@ -1,8 +1,8 @@
 export const categoryOptions = [
-    {text: 'Drinks', value: 'drinks'},
-    {text: 'Culture', value: 'culture'},
-    {text: 'Film', value: 'film'},
-    {text: 'Food', value: 'food'},
-    {text: 'Music', value: 'music'},
-    {text: 'Travel', value: 'travel'},
+    {text: 'Gėrimai', value: 'drinks'},
+    {text: 'Kultūra', value: 'culture'},
+    {text: 'Filmai', value: 'film'},
+    {text: 'Maistas', value: 'food'},
+    {text: 'Muzika', value: 'music'},
+    {text: 'Kelionės', value: 'travel'},
 ]

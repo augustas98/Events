@@ -12,9 +12,9 @@ interface Props {
 
 export default observer(function ProfileContent({ profile }: Props) {
     const panes = [
-        { menuItem: 'About', render: () => <ProfileAbout /> },
-        { menuItem: 'Photos', render: () => <ProfilePhotos profile={profile} /> },
-        { menuItem: 'Events', render: () => <ProfileActivities />}
+        { menuItem: 'Apie', render: () => <ProfileAbout /> },
+        { menuItem: 'Nuotraukos', render: () => <ProfilePhotos profile={profile} /> },
+        { menuItem: 'Renginiai', render: () => <ProfileActivities />}
     ]
 
     return (

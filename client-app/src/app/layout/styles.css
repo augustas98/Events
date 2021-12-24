@@ -15,12 +15,8 @@ body {
 .masthead {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(
-          135deg,
-          rgb(24, 42, 115) 0%,
-          rgb(14, 79, 100) 69%,
-          rgb(12, 94, 97) 89%
-  ) !important;
+  background-image: url('homepage.png') !important;
+  background-size: cover !important;
   height: 100vh;
 }
 
@@ -31,6 +27,12 @@ body {
 .masthead .ui.menu .ui.button,
 .ui.menu a.ui.inverted.button {
   margin-left: 0.5em;
+}
+
+.masthead homepageheader.ui.header {
+  font-size: 4em;
+  font-weight: normal;
+  background-color: rgb(202, 204, 226);
 }
 
 .masthead h1.ui.header {

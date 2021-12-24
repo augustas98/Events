@@ -12,8 +12,7 @@ export default observer (function HomePage() {
     return (
         <Segment inverted textAlign='center' className='masthead'>
             <Container text>
-                <Header as='h1' inverted color='blue'>
-                    Sveiki atvykę į renginius!
+                <Header as='homepageheader' inverted color='black'>
                 </Header>
                 {userStore.isLoggedIn ? (
                     <>
@@ -23,10 +22,10 @@ export default observer (function HomePage() {
                     </>
                 ) : (
                         <>
-                            <Button onClick={() => modalStore.openModal(<LoginForm />)} size='huge' color='blue' inverted>
+                            <Button onClick={() => modalStore.openModal(<LoginForm />)} size='huge' color='blue' inverted={false}>
                                 Prisijungti
                             </Button>
-                            <Button onClick={() => modalStore.openModal(<RegisterForm />)} size='huge' color='blue' inverted>
+                            <Button onClick={() => modalStore.openModal(<RegisterForm />)} size='huge' color='blue' inverted={false}>
                                 Registruotis
                             </Button>
                         </>

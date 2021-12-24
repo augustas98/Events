@@ -9,49 +9,49 @@ export default observer(function ActivityFilters() {
     return (
         <>
             <Menu vertical size='large' style={{ width: '100%', marginTop: 26 }}>
-                <Header icon='filter' attached color='blue' content='Filters' />
+                <Header icon='filter' attached color='blue' content='Filtrai' />
                 <Menu.Item 
-                    content='All Activities'
+                    content='Visi renginiai'
                     active={predicate.has('all')}
                     onClick={() => setPredicate('all', 'true')}
                 />
                 <Menu.Item 
-                    content="I'm going"
+                    content="Aš dalyvausiu"
                     active={predicate.has('isGoing')}
                     onClick={() => setPredicate('isGoing', 'true')}
                  />
                 <Menu.Item
-                content="I'm hosting"
+                content="Aš rengiu"
                 active={predicate.has('isHost')}
                 onClick={() => setPredicate('isHost', 'true')}
                 />
                 <Menu.Item
-                    content="Drinks"
+                    content="Gėrimai"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'drinks')}
                 />
                 <Menu.Item
-                    content="Culture"
+                    content="Kultūra"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'culture')}
                 />
                 <Menu.Item
-                    content="Films"
+                    content="Filmai"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'film')}
                 />
                 <Menu.Item
-                    content="Food"
+                    content="Maistas"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'food')}
                 />
                 <Menu.Item
-                    content="Music"
+                    content="Muzika"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'music')}
                 />
                 <Menu.Item
-                    content="Travel"
+                    content="Kelionės"
                     active={predicate.has('category')}
                     onClick={() => setPredicate('category', 'travel')}
                 />        
