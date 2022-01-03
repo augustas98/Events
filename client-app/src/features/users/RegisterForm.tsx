@@ -1,7 +1,7 @@
 import { ErrorMessage, Form, Formik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
+import { Button, Header, Label } from 'semantic-ui-react';
 import { useStore } from '../../app/stores/store';
 import * as Yup from 'yup';
 import ValidationErrors from '../errors/ValidationErrors';
@@ -13,7 +13,7 @@ export default observer(function RegisterForm() {
         <Formik
             initialValues={{displayName: '', username: '', email: '', password: '', error: null}}
             onSubmit={(values, {setErrors}) => userStore.register(values).catch(error => 
-                setErrors({error}))}
+                setErrors({error: 'Toks e.paštas jau yra naudojamas arba per silpnas slaptažodis'}))}
             validationSchema={Yup.object({
                 displayName: Yup.string().required(),
                 username: Yup.string().required(),
@@ -28,9 +28,9 @@ export default observer(function RegisterForm() {
                     <ReusableTextInput name='username' placeholder='Naudotojo vardas' />
                     <ReusableTextInput name='email' placeholder='Elektroninis paštas' />
                     <ReusableTextInput name='password' placeholder='Slaptažodis' type='password' />
-                    <ErrorMessage 
-                        name='error' render={() => 
-                        <ValidationErrors errors={errors.error}/>}
+                    <ErrorMessage
+                        name='error' render={() =>
+                        <Label style={{marginBottom: 10}} basic color='red' content={errors.error}/>}
                     />
                     <Button disabled={!isValid || !dirty || isSubmitting} 
                         loading={isSubmitting} positive content='Patvirtinti' type='submit' fluid />
