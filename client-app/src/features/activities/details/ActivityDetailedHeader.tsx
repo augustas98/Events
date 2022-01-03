@@ -42,7 +42,7 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                                     content={activity.title}
                                     style={{ color: 'white' }}
                                 />
-                                <p>{format(activity.date!, 'dd MMM yyyy')}</p>
+                                <p>{format(activity.date!, 'yyyy-MM-dd')}</p>
                                 <p>
                                     Renginio savininkas <strong><Link to={`/profiles/${activity.host?.username}`}>{activity.host?.displayName}</Link></strong>
                                 </p>

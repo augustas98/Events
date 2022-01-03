@@ -6,6 +6,7 @@ import { Segment, Header, Comment, Loader } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import * as Yup from 'yup';
 import { formatDistanceToNow } from 'date-fns';
+import lt from 'date-fns/locale/lt';
 
 interface Props {
     activityId: string;
@@ -45,7 +46,7 @@ export default observer(function ActivityDetailedChat({ activityId }: Props) {
                                     {comment.displayName}
                                 </Comment.Author>
                                 <Comment.Metadata>
-                                    <div>{formatDistanceToNow(comment.createdAt)} ago</div>
+                                    <div>prieš {formatDistanceToNow(comment.createdAt, { locale:lt })}</div>
                                 </Comment.Metadata>
                                 <Comment.Text style={{whiteSpace: 'pre-wrap'}}>{comment.body}</Comment.Text>
                             </Comment.Content>

@@ -1,8 +1,11 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import Calendar from "react-calendar";
-import { Header, Menu } from "semantic-ui-react";
+import { Dropdown, Header, Menu } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
+import lt from 'date-fns/locale/lt';
+import { registerLocale } from "react-datepicker";
+registerLocale("lt", lt);
 
 export default observer(function ActivityFilters() {
     const {activityStore: {predicate, setPredicate}} = useStore();
@@ -25,39 +28,20 @@ export default observer(function ActivityFilters() {
                 active={predicate.has('isHost')}
                 onClick={() => setPredicate('isHost', 'true')}
                 />
-                <Menu.Item
-                    content="Gėrimai"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'drinks')}
-                />
-                <Menu.Item
-                    content="Kultūra"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'culture')}
-                />
-                <Menu.Item
-                    content="Filmai"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'film')}
-                />
-                <Menu.Item
-                    content="Maistas"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'food')}
-                />
-                <Menu.Item
-                    content="Muzika"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'music')}
-                />
-                <Menu.Item
-                    content="Kelionės"
-                    active={predicate.has('category')}
-                    onClick={() => setPredicate('category', 'travel')}
-                />        
+                <Dropdown text='Kategorija' pointing='left' className='link item'>
+                <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'drinks')}>Gėrimai</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'culture')}>Kultūra</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'film')}>Filmai</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'food')}>Maistas</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'music')}>Muzika</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setPredicate('category', 'travel')}>Kelionės</Dropdown.Item>
+                </Dropdown.Menu>    
+                </Dropdown>   
             </Menu>
             <Header />
-            <Calendar 
+            <Calendar
+                locale="lt" 
                 onChange={(date: Date) => setPredicate('startDate', date as Date)}
                 value={predicate.get('startDate') || new Date()}
             />
