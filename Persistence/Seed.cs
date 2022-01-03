@@ -29,28 +29,6 @@ namespace Persistence
                     await userManager.CreateAsync(user, "password123");
                 }
 
-                var activities = new List<Activity>
-                {
-                    new Activity
-                    {
-                        Title = "Test activity",
-                        Date = DateTime.Now.AddMonths(-2),
-                        Description = "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test",
-                        Category = "drinks",
-                        City = "Test",
-                        Venue = "Test",
-                        Attendees = new List<ActivityAttendee>
-                        {
-                            new ActivityAttendee
-                            {
-                                Appuser = users[0],
-                                IsHost = true
-                            }
-                        }
-                    }
-                };
-
-                await context.Activities.AddRangeAsync(activities);
                 await context.SaveChangesAsync();
             }
         }
